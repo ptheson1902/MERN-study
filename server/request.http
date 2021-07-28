@@ -1,0 +1,52 @@
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username":"ptheson",
+    "password":"19021997aa"
+}
+
+###
+POST http://localhost:5000/api/post
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGQ0MzY3MTU2M2JmMzIwNDU5YTZjYzEiLCJpYXQiOjE2MjQ1MjA0Nzl9.8rV7pDIZ3z9Nn7yegB90I9ZAkcCC6TYG8ajUhaavoyE
+
+{
+    "title": "Test 2",
+    "description": "test 2",
+    "url": "https://shopee.com",
+    "status": "Learned"
+}
+
+
+
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username":"ptheson",
+    "password":"19021997aa"
+}
+
+###
+GET http://localhost:5000/api/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGQ0MzY3MTU2M2JmMzIwNDU5YTZjYzEiLCJpYXQiOjE2MjQ1MjA0Nzl9.8rV7pDIZ3z9Nn7yegB90I9ZAkcCC6TYG8ajUhaavoyE
+
+
+###
+PUT http://localhost:5000/api/post/60d4372c563bf320459a6cc2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGQ0MzY3MTU2M2JmMzIwNDU5YTZjYzEiLCJpYXQiOjE2MjQ1MjA0Nzl9.8rV7pDIZ3z9Nn7yegB90I9ZAkcCC6TYG8ajUhaavoyE
+Content-Type: application/json
+
+{
+    "title": "Update data",
+    "description": "update",
+    "url": "https://shopee.com",
+    "status": "To Learn"
+}
+
+
+###
+DELETE http://localhost:5000/api/post/60d4372c563bf320459a6cc2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGQ0MzY3MTU2M2JmMzIwNDU5YTZjYzEiLCJpYXQiOjE2MjQ1MjA0Nzl9.8rV7pDIZ3z9Nn7yegB90I9ZAkcCC6TYG8ajUhaavoyE

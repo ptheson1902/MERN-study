@@ -7,6 +7,18 @@ const Post = require('../models/Posts')
 // @desc Create post
 // @access Private
 router.post('/', verifyToken, async (req, res) => {
+        // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', "*");
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
     const { title, description, url, status } = req.body
 
     //Simple validation
@@ -45,6 +57,18 @@ router.post('/', verifyToken, async (req, res) => {
 // @desc Get post
 // @access Private
 router.get('/', verifyToken, async (req, res) => {
+        // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', "*");
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
     try {
         const posts = await Post.find({ user: req.userId }).populate('user', [
             'username',
@@ -62,6 +86,18 @@ router.get('/', verifyToken, async (req, res) => {
 // @desc PUT post
 // @access Private
 router.put('/:id', verifyToken, async (req, res) => {
+        // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', "*");
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
     const { title, description, url, status } = req.body
 
     //Simple validation
@@ -114,6 +150,18 @@ router.put('/:id', verifyToken, async (req, res) => {
 // @desc DELETE post
 // @access Private
 router.delete('/:id', verifyToken, async (req, res) => {
+        // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', "*");
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
     try {
         const postDeleteCondition = { _id: req.params.id, user: req.userId }
         const deletePost = await Post.findOneAndDelete(postDeleteCondition)

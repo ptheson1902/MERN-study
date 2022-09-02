@@ -10,6 +10,18 @@ const verifyToken = require('../middleware/auth')
 // @desc Check if user is logged in
 // @access Public
 router.get('/', verifyToken, async (req, res) => {
+        // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', "*");
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
     try {
         const user = await User.findById(req.userId).select('-password')
         if (!user)
@@ -30,6 +42,18 @@ router.get('/', verifyToken, async (req, res) => {
 // @desc Register User
 // @access Public
 router.post('/register', async (req, res) => {
+        // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', "*");
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
     const { username, password } = req.body
 
     //simple validation
@@ -78,6 +102,18 @@ router.post('/register', async (req, res) => {
 // @access Public
 
 router.post('/login', async (req, res) => {
+        // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', "*");
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
     const { username, password } = req.body
 
     // Simple Validation
